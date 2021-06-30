@@ -1,8 +1,7 @@
-FROM ubuntu:20.10
+FROM node:14.16.1-alpine3.13
 WORKDIR /app
 COPY package*.json ./
-RUN apt-get update --yes
-RUN apt-get install npm --yes
-COPY . . 
+RUN npm install
+COPY . .
 EXPOSE 8080
 CMD ["node", "index.js"]
